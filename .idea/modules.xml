@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../as3-signals/as3-signals.iml" filepath="$PROJECT_DIR$/../as3-signals/as3-signals.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../robotlegs-extensions-SignalCommandMap/robotlegs-extensions-SignalCommandMap.iml" filepath="$PROJECT_DIR$/../robotlegs-extensions-SignalCommandMap/robotlegs-extensions-SignalCommandMap.iml" />
+      <module fileurl="file://$PROJECT_DIR$/robotlegs2-signals-feathers-flickr-example.iml" filepath="$PROJECT_DIR$/robotlegs2-signals-feathers-flickr-example.iml" />
+    </modules>
+  </component>
+</project>
+

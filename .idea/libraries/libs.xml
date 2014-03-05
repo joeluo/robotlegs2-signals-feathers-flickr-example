@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="libs">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../as3-signals/libs/asunit4-alpha.swc!/" />
+      <root url="jar://$PROJECT_DIR$/../as3-signals/libs/hamcrest-as3.swc!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
