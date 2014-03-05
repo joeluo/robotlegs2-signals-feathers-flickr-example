@@ -30,3 +30,7 @@ Allows RL2 to use signals.
 
 - RL2 Starling extension at https://github.com/jamieowen/robotlegs2-starling-viewmap
 Allows RL2 to use Starling Sprites.
+
+### Update
+
+Forked and included all necessary things to make the project compile. Used IntelliJ but there should be little problems making it work with other IDEs as well.
