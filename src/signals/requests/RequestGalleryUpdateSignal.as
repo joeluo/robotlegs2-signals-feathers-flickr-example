@@ -3,9 +3,11 @@ package signals.requests
 
 	import model.vo.GalleryItemVO;
 
-	import org.osflash.signals.Signal;
+import org.osflash.signals.ISignal;
 
-	public class RequestGalleryUpdateSignal extends Signal
+import org.osflash.signals.Signal;
+
+	public class RequestGalleryUpdateSignal extends Signal implements ISignal
 	{
 		public function RequestGalleryUpdateSignal() {
 
