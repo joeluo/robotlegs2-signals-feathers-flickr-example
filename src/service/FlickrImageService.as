@@ -12,10 +12,11 @@ package service
 
 	import signals.requests.RequestGalleryUpdateSignal;
 
-	public class FlickrImageService implements IPhotoGalleryService
+
+public class FlickrImageService implements IPhotoGalleryService
 	{
-		[Inject]
-		public var eventDispatcher:IEventDispatcher;
+        [Inject]
+        public var eventDispatcher:IEventDispatcher;
 
 		[Inject]
 		public var logger:ILogger;

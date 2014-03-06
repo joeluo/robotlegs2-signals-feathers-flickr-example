@@ -20,31 +20,38 @@ import robotlegs.bender.framework.impl.Context;
 
 import signals.requests.RequestGalleryUpdateSignal;
 
+import util.MockLogger;
+
 public class TestFlickImageService
 {
+
+
+
     private var service:FlickrImageService;
     private var serviceDispatcher:EventDispatcher;
-    private var context:IContext;
 
     [Before]
     public function setUp():void
     {
-
-        context = new Context().install(MVCSBundle);
         serviceDispatcher = new EventDispatcher();
+
+//        for some weird reason the FlickImageService has to be cast at all times
+
         service = new FlickrImageService();
+
         (service as FlickrImageService).eventDispatcher = this.serviceDispatcher;
-//        service.eventDispatcher = this.serviceDispatcher;
         (service as FlickrImageService).requestGalleryUpdateSignal = new RequestGalleryUpdateSignal();
-        (service as FlickrImageService).logger = context.getLogger(this);
+        (service as FlickrImageService).logger = new MockLogger();
 
     }
+
 
     [Test(async)]
     public function test_retrieve_images_should_get_a_non_empty_gallery():void
     {
         handleSignal(this, (this.service as FlickrImageService).requestGalleryUpdateSignal, handleImagesReceived, 3000);
         (this.service as FlickrImageService).loadData();
+//        service.loadData();
     }
 
     private function handleImagesReceived(event:SignalAsyncEvent, data:Object):void
@@ -52,9 +59,6 @@ public class TestFlickImageService
         assertThat(event.args[0].length, greaterThan(0));
     }
 
-    private function handleServiceTimeout():void
-    {
-
-    }
 }
+
 }
