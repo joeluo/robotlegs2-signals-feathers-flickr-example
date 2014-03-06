@@ -3,28 +3,20 @@
  */
 package
 {
-import org.flexunit.asserts.assertEquals;
+import model.TestGalleryModel;
 
+import service.TestFlickImageService;
+
+import view.thumbsview.TestThumbsViewMediator;
+
+[Suite]
+[RunWith("org.flexunit.runners.Suite")]
 public class TestRobotlegsStarlingSignals
 {
-    [Test]
-    public function test_that_fails():void
-    {
-       var thisIsFalse:Boolean = false;
-       assertEquals("This test fails always!", true, thisIsFalse);
-    }
 
-    [Test]
-    public function test_that_passes():void
-    {
-        var thisIsTrue:Boolean = true;
-        assertEquals("This test always passes!", true, thisIsTrue);
-    }
-
-
-
-
-
+    public var testGalleryModel:TestGalleryModel;
+    public var testThumbsViewMediator:TestThumbsViewMediator;
+    public var testFlickImageService:TestFlickImageService;
 
 }
 }
