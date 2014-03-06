@@ -3,7 +3,11 @@
  */
 package service
 {
+import service.*;
+
 import flash.events.EventDispatcher;
+
+import model.GalleryModel;
 
 import org.hamcrest.assertThat;
 import org.hamcrest.number.greaterThan;
@@ -24,34 +28,36 @@ import util.MockLogger;
 
 public class TestFlickImageService
 {
-
-
-
-    private var service:FlickrImageService;
-    private var serviceDispatcher:EventDispatcher;
+    private var _flickrImageService:FlickrImageService;
+    private var _serviceDispatcher:EventDispatcher;
 
     [Before]
     public function setUp():void
     {
-        serviceDispatcher = new EventDispatcher();
 
-//        for some weird reason the FlickImageService has to be cast at all times
+        _serviceDispatcher = new EventDispatcher();
 
-        service = new FlickrImageService();
+        _flickrImageService = new FlickrImageService();
+        _flickrImageService.eventDispatcher = this._serviceDispatcher;
+        _flickrImageService.requestGalleryUpdateSignal = new RequestGalleryUpdateSignal();
 
-        (service as FlickrImageService).eventDispatcher = this.serviceDispatcher;
-        (service as FlickrImageService).requestGalleryUpdateSignal = new RequestGalleryUpdateSignal();
-        (service as FlickrImageService).logger = new MockLogger();
+        _flickrImageService.logger = new MockLogger();
 
+    }
+
+    [After]
+    public function tearDown():void
+    {
+        _serviceDispatcher = null;
+        _flickrImageService = null;
     }
 
 
     [Test(async)]
     public function test_retrieve_images_should_get_a_non_empty_gallery():void
     {
-        handleSignal(this, (this.service as FlickrImageService).requestGalleryUpdateSignal, handleImagesReceived, 3000);
-        (this.service as FlickrImageService).loadData();
-//        service.loadData();
+        handleSignal(this, _flickrImageService.requestGalleryUpdateSignal, handleImagesReceived, 3000);
+        _flickrImageService.loadData();
     }
 
     private function handleImagesReceived(event:SignalAsyncEvent, data:Object):void

@@ -19,9 +19,9 @@ package model
 		private var _selectedItem:GalleryItemVO;
 
 		public function set galleryItems( value:Vector.<GalleryItemVO> ):void {
-			_galleryItems = value;
-			logger.info( "gallery set: " + value );
-		}
+        _galleryItems = value;
+        logger.info( "gallery set: " + value );
+    }
 
 		public function get galleryItems():Vector.<GalleryItemVO> {
 			return _galleryItems;
@@ -37,5 +37,6 @@ package model
 		public function get selectedItem():GalleryItemVO {
 			return _selectedItem;
 		}
+
 	}
 }

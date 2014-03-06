@@ -5,8 +5,6 @@ package
 {
 import org.flexunit.asserts.assertEquals;
 
-import util.TestClass;
-
 public class TestRobotlegsStarlingSignals
 {
     [Test]
@@ -23,14 +21,6 @@ public class TestRobotlegsStarlingSignals
         assertEquals("This test always passes!", true, thisIsTrue);
     }
 
-    [Test]
-    public function test_test_class_just_to_see_it_works():void
-    {
-        var testClass:TestClass = new TestClass();
-        testClass.doSomething();
-        var shouldBe6 = testClass.doSomethingElse();
-        assertEquals(6, shouldBe6);
-    }
 
 
 
